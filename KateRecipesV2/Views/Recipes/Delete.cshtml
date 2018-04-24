@@ -1,0 +1,72 @@
+﻿@model KateRecipesV2.Models.Recipe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescryption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescryption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Components)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Components)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Implementations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Implementations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageMimeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageMimeType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
