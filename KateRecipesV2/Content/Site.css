@@ -16,3 +16,14 @@ textarea {
     max-width: 280px;
 }
 
+p {
+    text-align:center;
+}
+
+img {
+    align-content:center;
+}
+
+dl{
+    text-align:center;
+}

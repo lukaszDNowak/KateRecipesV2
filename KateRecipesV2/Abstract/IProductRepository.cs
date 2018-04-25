@@ -11,7 +11,7 @@ namespace KateRecipesV2.Abstract
     {
         IEnumerable<Recipe> Recipes { get; }
         void SaveRecipe(Recipe recipe);
-
         Recipe DeleteRecipe(int recipeID);
+
     }
 }

@@ -62,7 +62,7 @@ namespace KateRecipesV2.Controllers
             }
             else
             {
-                // błąd w wartościach danych
+              //brak danych
                 return View(recipe);
             }
         }
