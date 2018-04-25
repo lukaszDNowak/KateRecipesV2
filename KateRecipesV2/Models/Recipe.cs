@@ -11,17 +11,32 @@ namespace KateRecipesV2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Recipe
-    {
+    {   [Key]
         public int Id { get; set; }
+        [DisplayName("Nazwa")]
+        [Required]
         public string Name { get; set; }
+        [DisplayName("Krótki opis")]
+        [Required]
         public string ShortDescryption { get; set; }
+        [DisplayName("Sk³adniki")]
+        [Required]
         public string Components { get; set; }
+
+        [DisplayName("Wykonanie")]
+        [Required]
         public string Implementations { get; set; }
+
+        [DisplayName("Kategoria")]
+        [Required]
+        public string Category { get; set; }
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
-        public string Category { get; set; }
+     
         
     }
 }
