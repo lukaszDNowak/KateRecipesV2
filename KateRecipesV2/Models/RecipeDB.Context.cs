@@ -9,12 +9,11 @@
 
 namespace KateRecipesV2.Models
 {
-    using KateRecipesV2.Abstract;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RecipesDBEntities : DbContext 
+    public partial class RecipesDBEntities : DbContext
     {
         public RecipesDBEntities()
             : base("name=RecipesDBEntities")

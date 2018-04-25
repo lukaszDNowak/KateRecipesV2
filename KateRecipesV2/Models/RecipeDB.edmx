@@ -4,23 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="RecipesDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="RecipesDBModelStoreContainer">
-    <EntitySet Name="Recipe" EntityType="RecipesDBModel.Store.Recipe" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="Recipe">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="ShortDescryption" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Components" Type="varchar(max)" Nullable="false" />
-    <Property Name="Implementations" Type="varchar(max)" Nullable="false" />
-    <Property Name="ImageData" Type="varbinary(max)" Nullable="true" />
-    <Property Name="ImageMimeType" Type="varchar" Nullable="true" MaxLength="50" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="RecipesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortDescryption" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Components" Type="varchar(max)" Nullable="false" />
+          <Property Name="Implementations" Type="varchar(max)" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="20" />
+          <Property Name="ImageData" Type="varbinary(max)" />
+          <Property Name="ImageMimeType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="RecipesDBModelStoreContainer">
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RecipesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -35,6 +36,7 @@
           <Property Name="Implementations" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ImageMimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="RecipesDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Recipe" EntityType="Self.Recipe" />
@@ -48,7 +50,8 @@
     <EntitySetMapping Name="Recipe">
       <EntityTypeMapping TypeName="IsTypeOf(RecipesDBModel.Recipe)">
         <MappingFragment StoreEntitySet="Recipe">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ShortDescryption" ColumnName="ShortDescryption" />
           <ScalarProperty Name="Components" ColumnName="Components" />

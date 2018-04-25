@@ -36,6 +36,7 @@ namespace KateRecipesV2.DAL
                     dbEntry.ShortDescryption = recipe.ShortDescryption;
                     dbEntry.Components = recipe.Components;
                     dbEntry.Implementations = recipe.Implementations;
+                    dbEntry.Category = recipe.Category;
                     dbEntry.ImageData = recipe.ImageData;
                     dbEntry.ImageMimeType = recipe.ImageMimeType;
                 }
